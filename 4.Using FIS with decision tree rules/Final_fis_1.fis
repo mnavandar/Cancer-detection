@@ -1,0 +1,73 @@
+[System]
+Name='Final_fis_1'
+Type='mamdani'
+Version=2.0
+NumInputs=6
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='bisector'
+
+[Input1]
+Name='perimeter_mean_labels'
+Range=[0 4]
+NumMFs=2
+MF1='low':'trimf',[0 1 1.5]
+MF2='high':'trimf',[1.45 2 4]
+
+[Input2]
+Name='perimeter_worst_labels'
+Range=[0 4]
+NumMFs=2
+MF1='low':'trimf',[0 0.25 0.5]
+MF2='high':'trimf',[0.49 1.5 4]
+
+[Input3]
+Name='texture_worst_labels'
+Range=[0 4]
+NumMFs=2
+MF1='low':'trimf',[0 1.5 2.5]
+MF2='high':'trimf',[2.45 3 4]
+
+[Input4]
+Name='radius_worst_labels'
+Range=[0 4]
+NumMFs=2
+MF1='low':'trimf',[0 0.75 1.5]
+MF2='high':'trimf',[1.45 2.25 4]
+
+[Input5]
+Name='smoothness_worst_labels'
+Range=[0 4]
+NumMFs=4
+MF1='low':'trimf',[0 0.25 0.5]
+MF2='medium':'trimf',[0 1.25 1.5]
+MF3='high':'trimf',[1.45 2.5 4]
+MF4='mid':'trimf',[0.5 2 4]
+
+[Input6]
+Name='compactness_se_labels'
+Range=[0 4]
+NumMFs=2
+MF1='low':'trimf',[0 0.25 0.5]
+MF2='high':'trimf',[0.49 2 4]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=2
+MF1='class_0':'trimf',[0 0 0]
+MF2='class_1':'trimf',[1 1 1]
+
+[Rules]
+1 1 1 0 0 0, 2 (1) : 1
+2 0 0 2 4 0, 1 (1) : 1
+1 2 0 0 2 0, 2 (1) : 1
+1 2 0 0 3 0, 1 (1) : 1
+2 0 0 1 0 2, 1 (1) : 1
+1 1 2 0 0 0, 2 (1) : 1
+2 0 0 1 0 1, 2 (1) : 1
+2 0 0 2 1 0, 1 (1) : 1
